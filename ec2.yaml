@@ -1,0 +1,38 @@
+---
+InstanceType: t2.micro
+ImageId: 'ami-09246ddb00c7c4fef'
+MaxCount: 1
+MinCount: 1
+KeyName: 'Python_KEY1'
+SecurityGroupIds: ['your_security groups']
+BlockDeviceMappings: [
+    {
+      DeviceName: '/dev/xvda',
+        Ebs: {
+          DeleteOnTermination: True,
+          VolumeSize: 8,
+          VolumeType: 'gp2'
+        },
+      DeviceName: '/dev/xvdf',
+        Ebs: {
+          DeleteOnTermination: True,
+          VolumeSize: 10,
+          VolumeType: 'gp2'
+        }
+    }
+]
+TagSpecifications: [
+    {
+      ResourceType: 'instance',
+      Tags: [
+        {
+          Key: 'Name',
+          Value: 'Boto3_Python'
+        }
+      ]
+    }
+  ]
+
+
+
+
